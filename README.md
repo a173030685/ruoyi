@@ -1,16 +1,6 @@
 ## 平台简介
 
-一直想做一款后台管理系统，看了很多优秀的开源项目但是发现没有合适的。于是利用空闲休息时间开始自己写了一套后台系统。如此有了若依。她可以用于所有的Web应用程序，如网站管理后台，网站会员中心，CMS，CRM，OA。所有前端后台代码封装过后十分精简易上手，出错概率低。同时支持移动客户端访问。系统会陆续更新一些实用功能。
-
-性别男，若依是给还没有出生女儿取的名字（寓意：你若不离不弃，我必生死相依）
-
-若依基于hplus和inspinia两套后台系统模板开发。有需要可自行到群内下载。
-
-> RuoYi从3.0开始，进行模块拆分，将原先的单应用转变为多模块，如需单应用，请移步 [RuoYi-fast](https://gitee.com/y_project/RuoYi-fast)  
-
-> 推荐使用阿里云部署，通用云产品代金券 ：[点我领取](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=brki8iof)
-
-> 阿里云双12活动低至2折 ：[点我购买](https://m.aliyun.com/act/team1212?params=N.DTB4ZxQhX0#/)
+基于SpringBoot2.0的权限管理系统 易读易懂、界面简洁美观；可以直接作为一个后台管理系统的脚手架。
 
 ## 内置功能
 
@@ -31,8 +21,6 @@
 15. 在线构建器：拖动表单元素生成相应的HTML代码。
 16. 连接池监视：监视当期系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
 ## 在线体验
-> admin/admin123  
-> 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。
 
 演示地址：http://ruoyi.vip  
 
@@ -67,7 +55,3 @@
     </tr>
 </table>
 
-
-## 若依交流群
-
-QQ群： [![加入QQ群](https://img.shields.io/badge/已满-1389287-blue.svg)](https://jq.qq.com/?_wv=1027&k=5HBAaYN)  [![加入QQ群](https://img.shields.io/badge/已满-1679294-blue.svg)](https://jq.qq.com/?_wv=1027&k=5cHeRVW)  [![加入QQ群](https://img.shields.io/badge/QQ群-1529866-blue.svg)](https://jq.qq.com/?_wv=1027&k=53R0L5Z)  点击按钮入群。
