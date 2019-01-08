@@ -1,9 +1,6 @@
 package com.ruoyi.common.core;
 
-import tk.mybatis.mapper.common.BaseMapper;
-import tk.mybatis.mapper.common.ConditionMapper;
-import tk.mybatis.mapper.common.ExampleMapper;
-import tk.mybatis.mapper.common.IdsMapper;
+import tk.mybatis.mapper.common.*;
 import tk.mybatis.mapper.common.special.InsertListMapper;
 
 /**
@@ -14,6 +11,8 @@ public interface Mapper<T>
         BaseMapper<T>,
         ExampleMapper<T>,
         ConditionMapper<T>,
+        RowBoundsMapper<T>,
+        Marker,
         IdsMapper<T>,
         InsertListMapper<T> {
 }

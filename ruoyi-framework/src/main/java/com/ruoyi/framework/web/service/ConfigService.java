@@ -1,5 +1,7 @@
 package com.ruoyi.framework.web.service;
 
+import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.system.domain.SysConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.system.service.ISysConfigService;
@@ -18,11 +20,12 @@ public class ConfigService
     /**
      * 根据键名查询参数配置信息
      * 
-     * @param configName 参数名称
+     * @param configKey 参数名称
      * @return 参数键值
      */
     public String getKey(String configKey)
     {
-        return configService.selectConfigByKey(configKey);
+        SysConfig retConfig = configService.findBy("configKey", configKey);
+        return StringUtils.isNotNull(retConfig) ? retConfig.getConfigValue() : "";
     }
 }

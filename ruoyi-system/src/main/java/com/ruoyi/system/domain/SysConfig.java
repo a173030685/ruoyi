@@ -5,6 +5,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.base.BaseEntity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 参数配置表 sys_config
  * 
@@ -15,6 +18,7 @@ public class SysConfig extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 参数主键 */
+    @Id
     @Excel(name = "参数主键")
     private Long configId;
 
@@ -92,11 +96,11 @@ public class SysConfig extends BaseEntity
             .append("configKey", getConfigKey())
             .append("configValue", getConfigValue())
             .append("configType", getConfigType())
-            .append("createBy", getCreateBy())
-            .append("createTime", getCreateTime())
-            .append("updateBy", getUpdateBy())
-            .append("updateTime", getUpdateTime())
-            .append("remark", getRemark())
+//            .append("createBy", getCreateBy())
+//            .append("createTime", getCreateTime())
+//            .append("updateBy", getUpdateBy())
+//            .append("updateTime", getUpdateTime())
+//            .append("remark", getRemark())
             .toString();
     }
 }

@@ -24,27 +24,27 @@ public abstract class AbstractService<T> implements Service<T> {
         modelClass = (Class<T>) pt.getActualTypeArguments()[0];
     }
 
-    public void save(T model) {
-        mapper.insertSelective(model);
+    public Integer save(T model) {
+        return mapper.insertSelective(model);
     }
 
-    public void save(List<T> models) {
-        mapper.insertList(models);
+    public Integer save(List<T> models) {
+        return mapper.insertList(models);
     }
 
-    public void deleteById(Integer id) {
-        mapper.deleteByPrimaryKey(id);
+    public Integer deleteById(Long id) {
+        return mapper.deleteByPrimaryKey(id);
     }
 
-    public void deleteByIds(String ids) {
-        mapper.deleteByIds(ids);
+    public Integer deleteByIds(String ids) {
+        return mapper.deleteByIds(ids);
     }
 
-    public void update(T model) {
-        mapper.updateByPrimaryKeySelective(model);
+    public Integer update(T model) {
+        return mapper.updateByPrimaryKeySelective(model);
     }
 
-    public T findById(Integer id) {
+    public T findById(Long id) {
         return mapper.selectByPrimaryKey(id);
     }
 
@@ -71,5 +71,28 @@ public abstract class AbstractService<T> implements Service<T> {
 
     public List<T> findAll() {
         return mapper.selectAll();
+    }
+
+    public List<T> findByModel(T model) {
+        Class<?> clz = model.getClass();
+        Field[] fields = clz.getDeclaredFields();
+        if(fields!=null && fields.length>0){
+            for (Field field:fields){
+                field.setAccessible(true);
+                String name = field.getName();
+                if(!name.equals("serialVersionUID")){
+                    Object o = null;
+                    try {
+                        o = field.get(model);
+                        if(o!=null && o.equals("")){
+                            field.set(model, null);
+                        }
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return mapper.select(model);
     }
 }

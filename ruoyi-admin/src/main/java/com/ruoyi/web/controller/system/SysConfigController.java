@@ -50,7 +50,8 @@ public class SysConfigController extends BaseController
     public TableDataInfo list(SysConfig config)
     {
         startPage();
-        List<SysConfig> list = configService.selectConfigList(config);
+//        List<SysConfig> list = configService.selectConfigList(config);
+        List<SysConfig> list = configService.findByModel(config);
         return getDataTable(list);
     }
 
@@ -60,7 +61,8 @@ public class SysConfigController extends BaseController
     @ResponseBody
     public AjaxResult export(SysConfig config)
     {
-        List<SysConfig> list = configService.selectConfigList(config);
+//        List<SysConfig> list = configService.selectConfigList(config);
+        List<SysConfig> list = configService.findByModel(config);
         ExcelUtil<SysConfig> util = new ExcelUtil<SysConfig>(SysConfig.class);
         return util.exportExcel(list, "config");
     }
@@ -83,8 +85,9 @@ public class SysConfigController extends BaseController
     @ResponseBody
     public AjaxResult addSave(SysConfig config)
     {
-        config.setCreateBy(ShiroUtils.getLoginName());
-        return toAjax(configService.insertConfig(config));
+//        config.setCreateBy(ShiroUtils.getLoginName());
+//        return toAjax(configService.insertConfig(config));
+        return toAjax(configService.save(config));
     }
 
     /**
@@ -93,7 +96,8 @@ public class SysConfigController extends BaseController
     @GetMapping("/edit/{configId}")
     public String edit(@PathVariable("configId") Long configId, ModelMap mmap)
     {
-        mmap.put("config", configService.selectConfigById(configId));
+//        mmap.put("config", configService.selectConfigById(configId));
+        mmap.put("config", configService.findById(configId));
         return prefix + "/edit";
     }
 
@@ -106,8 +110,9 @@ public class SysConfigController extends BaseController
     @ResponseBody
     public AjaxResult editSave(SysConfig config)
     {
-        config.setUpdateBy(ShiroUtils.getLoginName());
-        return toAjax(configService.updateConfig(config));
+//        config.setUpdateBy(ShiroUtils.getLoginName());
+//        return toAjax(configService.updateConfig(config));
+        return toAjax(configService.update(config));
     }
 
     /**
@@ -119,7 +124,8 @@ public class SysConfigController extends BaseController
     @ResponseBody
     public AjaxResult remove(String ids)
     {
-        return toAjax(configService.deleteConfigByIds(ids));
+//        return toAjax(configService.deleteConfigByIds(ids));
+        return toAjax(configService.deleteByIds(ids));
     }
 
     /**

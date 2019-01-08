@@ -76,12 +76,18 @@ mybatis:
     # 加载全局的配置文件
     configLocation: classpath:mapper/mybatis-config.xml
 
+mapper:
+    mappers:
+        - com.ruoyi.common.core.Mapper
+    not-empty: false
+    identity: MYSQL
+
 # PageHelper分页插件
 pagehelper: 
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql 
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
 
 # Shiro
 shiro:
